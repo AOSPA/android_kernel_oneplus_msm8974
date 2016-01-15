@@ -24,7 +24,7 @@
 #include <linux/of.h>
 
 /* Throttle CPU when reaches a certain tempertature*/
-unsigned int temp_threshold = 44;
+unsigned int temp_threshold = 40;
 module_param(temp_threshold, int, 0644);
 
 /* check every 0.5 seconds for the CPU temperature */
@@ -48,8 +48,8 @@ static struct thermal_info {
 enum thermal_freqs {
 	FREQ_HELL		= 652800,
 	FREQ_VERY_HOT		= 960000,
-	FREQ_HOT		= 1497600,
-	FREQ_WARM		= 1728000,
+	FREQ_HOT		= 1574400,
+	FREQ_WARM		= 1958400,
 };
 
 enum threshold_levels {
