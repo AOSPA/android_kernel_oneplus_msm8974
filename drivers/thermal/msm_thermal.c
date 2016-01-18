@@ -24,7 +24,7 @@
 #include <linux/of.h>
 
 /* Throttle CPU when reaches a certain tempertature*/
-unsigned int temp_threshold = 40;
+unsigned int temp_threshold = 42;
 module_param(temp_threshold, int, 0644);
 
 /* check every 0.5 seconds for the CPU temperature */
