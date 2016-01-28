@@ -57,7 +57,6 @@
 #define DEFAULT_SAMPLING_RATE 30000
 #define DEFAULT_IO_IS_BUSY 0
 #define DEFAULT_IGNORE_NICE 1
-#endif
 
 static unsigned int suspend_ideal_freq;
 static unsigned int awake_ideal_freq;
@@ -116,7 +115,6 @@ struct smartmax_info_s {
 	struct cpufreq_frequency_table *freq_table;
 	struct delayed_work work;
 	u64 prev_cpu_idle;
-	u64 prev_cpu_iowait;
 	u64 prev_cpu_wall;
 	u64 prev_cpu_nice;
 	u64 freq_change_time;
@@ -191,15 +189,6 @@ struct cpufreq_governor cpufreq_gov_smartmax = {
     .max_transition_latency = TRANSITION_LATENCY_LIMIT,
     .owner = THIS_MODULE,
     };
-
-static inline u64 get_cpu_iowait_time(unsigned int cpu, u64 *wall) {
-	u64 iowait_time = get_cpu_iowait_time_us(cpu, wall);
-
-	if (iowait_time == -1ULL)
-		return 0;
-
-	return iowait_time;
-}
 
 inline static void smartmax_update_min_max(
 		struct smartmax_info_s *this_smartmax, struct cpufreq_policy *policy) {
@@ -388,23 +377,19 @@ static inline void cpufreq_smartmax_get_ramp_direction(struct smartmax_info_s *t
 static void inline cpufreq_smartmax_calc_load(int j)
 {
 	struct smartmax_info_s *j_this_smartmax;
-	u64 cur_wall_time, cur_idle_time, cur_iowait_time;
-	unsigned int idle_time, wall_time, iowait_time;
+	u64 cur_wall_time, cur_idle_time;
+	unsigned int idle_time, wall_time;
 	unsigned int cur_load;
 
 	j_this_smartmax = &per_cpu(smartmax_info, j);
 
 	cur_idle_time = get_cpu_idle_time(j, &cur_wall_time, io_is_busy);
-	cur_iowait_time = get_cpu_iowait_time(j, &cur_wall_time);
 
 	wall_time = cur_wall_time - j_this_smartmax->prev_cpu_wall;
 	j_this_smartmax->prev_cpu_wall = cur_wall_time;
 
 	idle_time = cur_idle_time - j_this_smartmax->prev_cpu_idle;
 	j_this_smartmax->prev_cpu_idle = cur_idle_time;
-
-	iowait_time = cur_iowait_time - j_this_smartmax->prev_cpu_iowait;
-	j_this_smartmax->prev_cpu_iowait = cur_iowait_time;
 
 	if (ignore_nice) {
 		u64 cur_nice;
@@ -414,15 +399,6 @@ static void inline cpufreq_smartmax_calc_load(int j)
 		j_this_smartmax->prev_cpu_nice = kcpustat_cpu(j).cpustat[CPUTIME_NICE];
 		idle_time += jiffies_to_usecs(cur_nice_jiffies);
 	}
-
-	/*
-	 * For the purpose of ondemand, waiting for disk IO is an
-	 * indication that you're performance critical, and not that
-	 * the system is actually idle. So subtract the iowait time
-	 * from the cpu idle time.
-	 */
-	if (io_is_busy && idle_time >= iowait_time)
-		idle_time -= iowait_time;
 
 	if (unlikely(!wall_time || wall_time < idle_time))
 		return;
@@ -793,8 +769,7 @@ static int cpufreq_governor_smartmax(struct cpufreq_policy *new_policy,
 	unsigned int cpu = new_policy->cpu;
 	int rc;
 	struct smartmax_info_s *this_smartmax = &per_cpu(smartmax_info, cpu);
-	struct sched_param param = { .sched_priority = MAX_RT_PRIO-1 };
-    unsigned int latency;
+    	unsigned int latency;
 
 	switch (event) {
 	case CPUFREQ_GOV_START:
@@ -918,7 +893,6 @@ static int __init cpufreq_smartmax_init(void) {
 	sampling_rate = DEFAULT_SAMPLING_RATE;
 	io_is_busy = DEFAULT_IO_IS_BUSY;
 	ignore_nice = DEFAULT_IGNORE_NICE;
-	touch_poke_freq = DEFAULT_TOUCH_POKE_FREQ;
 
 	/* Initalize per-cpu data: */
 	for_each_possible_cpu(i)
