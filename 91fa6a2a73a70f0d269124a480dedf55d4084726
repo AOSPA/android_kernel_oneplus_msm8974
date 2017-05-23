@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2a00d277_48fbb891",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2017-05-23T16:03:46Z",
+      "side": 1,
+      "message": "This is",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "91fa6a2a73a70f0d269124a480dedf55d4084726",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "520e37fd_384b3706",
         "filename": "arch/arm/configs/baconx_defconfig",
         "patchSetId": 1
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "The reason is that I\u0027d like to stick close to the reference config.\nThe UART pins are not available on production units anyways, so this doesn\u0027t do anything.",
       "parentUuid": "520e37fd_384b3706",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 31
+      },
+      "revId": "91fa6a2a73a70f0d269124a480dedf55d4084726",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb54e938_faf7bf7a",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2017-05-23T16:03:46Z",
+      "side": 1,
+      "message": "I don\u0027t know why you would compile it then, but whatever",
+      "parentUuid": "3b1cc66d_a8024111",
       "range": {
         "startLine": 333,
         "startChar": 0,

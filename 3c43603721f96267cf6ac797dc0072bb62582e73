@@ -46,6 +46,30 @@
       "revId": "3c43603721f96267cf6ac797dc0072bb62582e73",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29e53234_528c7b88",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2017-05-23T16:03:46Z",
+      "side": 0,
+      "message": "I think this change was (a pretty good) Moto addition",
+      "parentUuid": "8f2dafa0_e430f81f",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "3c43603721f96267cf6ac797dc0072bb62582e73",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
     }
   ]
 }
