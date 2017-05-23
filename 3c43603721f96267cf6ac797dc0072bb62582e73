@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc50a058_e7dad772",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2017-05-23T15:39:25Z",
+      "side": 0,
+      "message": "Why?",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "3c43603721f96267cf6ac797dc0072bb62582e73",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
+    }
+  ]
+}
