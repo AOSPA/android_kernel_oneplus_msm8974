@@ -22,6 +22,30 @@
       "revId": "3c43603721f96267cf6ac797dc0072bb62582e73",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f2dafa0_e430f81f",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000070
+      },
+      "writtenOn": "2017-05-23T15:55:22Z",
+      "side": 0,
+      "message": "Why not?\nAsk CAF, this is the reference config.",
+      "parentUuid": "dc50a058_e7dad772",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "3c43603721f96267cf6ac797dc0072bb62582e73",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
     }
   ]
 }
