@@ -67,6 +67,24 @@
       "revId": "78eaa6975dc5114d0efda9f66bf4ecc51ae27cae",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71668b22_99e30295",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000070
+      },
+      "writtenOn": "2017-05-25T11:52:22Z",
+      "side": 1,
+      "message": "Given that they are enabled in the reference -perf defconfig, I think no?",
+      "parentUuid": "b8b6ff20_346f5361",
+      "revId": "78eaa6975dc5114d0efda9f66bf4ecc51ae27cae",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
     }
   ]
 }
