@@ -85,6 +85,24 @@
       "revId": "78eaa6975dc5114d0efda9f66bf4ecc51ae27cae",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07ae76d9_8f733a77",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 2
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2017-05-25T12:54:35Z",
+      "side": 1,
+      "message": "That means *nothing* at all. Yes, the other defconfig has more debugging options enabled but that doesn\u0027t mean the \"perf\" defconfig would be free from debug options with bad perf impact. It\u0027s Qualcomm.",
+      "parentUuid": "71668b22_99e30295",
+      "revId": "78eaa6975dc5114d0efda9f66bf4ecc51ae27cae",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": false
     }
   ]
 }
