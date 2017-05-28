@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "c7224ace_5dc20ab4",
+        "filename": "arch/arm/configs/baconx_defconfig",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000176
+      },
+      "writtenOn": "2017-05-28T13:39:43Z",
+      "side": 1,
+      "message": "Y tho?",
+      "revId": "78eaa6975dc5114d0efda9f66bf4ecc51ae27cae",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca806ec7_d8d023da",
         "filename": "arch/arm/configs/baconx_defconfig",
         "patchSetId": 2
